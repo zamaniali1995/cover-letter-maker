@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Cover Letter Maker</title>
+        <!-- CSS -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,300,100,100italic,300italic,400italic,700,700italic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+        <link rel="stylesheet" href="{{url_for('static', filename='bootstrap/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+		<!-- Font Awesome -->
+		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    </head>
+    <body style="background-color: black;">
+        <div class="coming-soon">
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h2 class="wow fadeInDown"><strong>Cover Letter</strong> Maker with <strong>ChatGPT</strong></h2>
+                            <h3 class="wow fadeInDown">Developed by <a href="https://zamaniali1995.github.io/" target="_blank"><strong><u>Ali Zamani</u></strong></a></h3>
+                            <h4><a href="">Fork <i class="fa fa-github"></i></a></h4>
+                            <div class="subscribe wow fadeInDown">
+			                    <form class="form-inline" action="/make" method="post" enctype="multipart/form-data">
+                                    <div class="mb-3">
+                                        <label for="formFile" class="form-label">Resume PDF (optional)</label>
+                                        <br>
+                                        <input class="form-control" type="file" id="formFile" name="cv" style="background-color: black;">
+                                      </div>
+                                    <br>
+                                    <br>
+                                    <input type="text" name="url" placeholder="Enter url of job posting website ... ">
+                                    <br>
+                                    <br>
+			                        <input type="text" name="access-token" placeholder="Enter access token ... " class="subscribe-email">
+                                    <br>
+                                    <br>
+                                    <input class="btn" type="submit" value="generate" style="background-color: green;" id="submit">
+			                    </form>
+                                <br>
+                                <div>
+                                    <div class="mb-3">
+                                        <textarea class="form-control" rows="30" >
+                                            {%for i in resp%}
+                                                {{i}}
+                                            {%endfor%}
+                                        </textarea>
+                                    </div>
+                                </div>
+			                    <div class="error-message"></div>
+			                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer>
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-sm-5 footer-social pull-right">
+	                	<ul class="social-icon">
+                            <li><a href="https://www.linkedin.com/in/zamaniali1995/"><i class="fa fa-linkedin-square"></i></a></li>
+                            <li><a href=""><i class="fa fa-github"></i></a></li>
+                        </ul>
+	                </div>
+	            </div>
+	        </div>
+        </footer>
+        <!-- Javascript -->
+        <script src="{{url_for('static', filename='js/jquery-1.10.2.min.js')}}"></script>
+    </body>
+</html>
