@@ -1,0 +1,11 @@
+name: cover-letter-env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - git==2.30.2
+  - pip==20.3.3
+  - pip:
+      - flask==2.2.2
+      - PyPDF2
+      - pre-commit==2.15.0
